@@ -2,10 +2,34 @@
 {% block title %} {{ parent() }} Accueil {% endblock %}
 {% block contenu %}
 
+    <div id="divimage" class="col-xl-6 col-lg-6">
+        <div class="welcome_thumb">
+            <div class="thumb_1">
+                <img src="img/about/1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-lg-6">
+        <div class="welcome_docmed_info">
+            <h3>Bienvenue sur
+                <span>HandiBook.</span></h3>
+            <p>HandiBook est une application destinée à faciliter l’arrivée des personnes en situation de handicap sur tous les campus EPSI.</p>
+            <ul>
+                <li> <i class="flaticon-verified"></i> Trouver de l'aide précieuse </li>
+                <li> <i class="flaticon-verified"></i> Rencontrer de nouvelles personnes</li>
+                <li> <i class="flaticon-verified"></i> Penser l'effort autrement </li>
+            </ul>
 
-    
-    
-    
-    
+            {%if session.login is defined %}
+                <a href="index.php?page=reservation" class="boxed-btn6">Prévoir mon arrivée</a>
+            {% endif %}
+
+
+
+        </div>
+    </div>
+
+
+
 {% endblock %}
 

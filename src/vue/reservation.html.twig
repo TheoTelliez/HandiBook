@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }} Réservation {% endblock %}
+{% block contenu %}
+    {% if session.login is defined %}
+
+        {% if form.valide is defined %}
+            {% if form.valide == true %}
+                <h1 class="h3 mb-3 font-weight-normal">Réservation effectuée, voici votre code d'accès :</h1>
+                <img width=300 src="img/qrcodes/{{ form.qrcode }}" alt=""/>
+                <a href="img/qrcodes/{{ form.qrcode }}" download="QR_Code_Reservation">Télécharger mon QR Code</a>
+
+
+            {% else %}
+                <h1 class="h3 mb-3 font-weight-normal">Echec de la réservation, erreur : {{form.message}}</h1>
+            {% endif %}
+
+        {% else %}
+
+            <div class="book_apointment_area">
+                <div class="container">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-12">
+                            <div class="popup_box ">
+                                <div class="popup_inner">
+                                    <h3>
+                                        Prévoir une
+                                        <span>Arrivée</span>
+                                    </h3>
+                                    <form action="index.php?page=reservation" method="post"
+                                          enctype="application/x-www-form-urlencoded">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <select class="form-select wide" id="default-select"
+                                                        name="default-select" required>
+                                                    <option data-display="Lieu d'arivée">Lieu d'arivée</option>
+                                                    <option value="EPSI Arras">EPSI Arras</option>
+                                                    <option value="EPSI Lille">EPSI Lille</option>
+                                                    <option value="EPSI Nantes">EPSI Nantes</option>
+                                                    <option value="EPSI Lyon">EPSI Lyon</option>
+                                                    <option value="EPSI Paris">EPSI Paris</option>
+                                                    <option value="EPSI Grenoble">EPSI Grenoble</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input class="datepicker" id="date" name="date"
+                                                       placeholder="Date d'arrivée" required>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <input class="timepicker" id="heure" name="heure"
+                                                       placeholder="Heure d'arrivée" required>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <button type="submit" id="btSend" name="btSend" class="boxed-btn3">
+                                                    Prévoir mon arrivée
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+    {% else %}
+        <h3>Accès interdit</h3>
+    {% endif %}
+
+
+{% endblock %}
+

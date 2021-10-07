@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+{% block title %} {{ parent() }} Arrivées {% endblock %}
+{% block contenu %}
+    {% if session.login is defined %}
+
+        <div style="text-align: center;">
+        <h2 style="text-align: center">Liste des personnes ayant une réservation en cours : </h2>
+            <br/>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <tr>
+                    <th>Date et heure de la réservation</th>
+                    <th>Lieu</th>
+                    <th>Email de la personne</th>
+                    <th>État</th>
+
+                </tr>
+                {% for t in liste %}
+                    <tr>
+                        <td>{{ t.date }} à {{ t.heure }}</td>
+                        <td>{{ t.lieu }}</td>
+                        <td>{{ t.emailResa }}</td>
+                        <td>{{ t.etat }}</td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+    {% endif %}
+
+
+{% endblock %}
+

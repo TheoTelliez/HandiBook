@@ -13,6 +13,12 @@
   justify-content: start;
 }
 
+@media (max-width: 600px) {
+    div#divimage{
+        display: none;
+    }
+}
+
 /* line 13, ../../Arafath/CL/january 2020/241. Medical/HTML/scss/_extend.scss */
 .overlay::before {
   background-image: -moz-linear-gradient(0deg, rgba(0, 28, 100, 0.8) 21%, rgba(0, 28, 100, 0.8) 22%, rgba(0, 53, 187, 0.3) 100%, #0035bb 100%);
@@ -3510,15 +3516,6 @@ h3 {
 .quality_area .col-lg-4:nth-child(2) .single_quality .icon i {
   position: relative;
   left: 6px;
-}
-
-/* line 1, ../../Arafath/CL/january 2020/241. Medical/HTML/scss/_book_apontment.scss */
-.book_apointment_area {
-  background-image: url(../img/banner/form_bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding: 150px 0;
 }
 
 @media (max-width: 767px) {
