@@ -52,8 +52,13 @@
                                                     {% if session.role == 1 %}
                                                         <li><a href="index.php?page=liste_arrivees">Voir les arrivées</a></li>
                                                     {% endif %}
-                                                    <li><a href="#">{{ session.login }}</a></li>
-                                                    <li><a href="index.php?page=deconnexion">Se déconnecter</a></li>
+                                                    <li><a href="#">Mon compte <i class="ti-angle-down"></i></a>
+                                                        <ul class="submenu">
+                                                            <li><a href="#">{{ session.login }}</a></li>
+                                                            <li><a href="index.php?page=deconnexion">Déconnexion</a></li>
+                                                        </ul>
+                                                    </li>
+
                                                 {% else %}
                                                     <li><a href="index.php?page=connexion">Se connecter</a></li>
                                                 {% endif %}

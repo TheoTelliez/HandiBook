@@ -15,9 +15,10 @@
                 $form['valide'] = false;
                 $form['message'] = "L'utilisateur n'est pas défini";
             } else {
-                if ($date < $now) {
+                if (date_create($date) < date_create($now)) {
                     $form['valide'] = false;
                     $form['message'] = "La date est inférieure à la date du jour";
+
                 } else {
                     $form['valide'] = true;
 
